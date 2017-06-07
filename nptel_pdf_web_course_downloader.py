@@ -6,6 +6,9 @@ import sys
 from random import randint
 import time
 
+CURSOR_UP_ONE = '\x1b[1A'
+ERASE_LINE = '\x1b[2K'
+
 if __name__ == '__main__':
 	startTime = time.time()
 	url = sys.argv[1]
@@ -28,6 +31,9 @@ if __name__ == '__main__':
 	os.chdir(title)
 	notDownloadedNumbers = []
 	notDownloadedUrls = []
+
+	totalFilesDownloaded = 0
+	print("Files Downloaded : \n#0000")
 	while True : 
 		visitUrl = BASE_URL + str(fileNumber)
 		req = urllib.request.Request(visitUrl)
@@ -42,10 +48,12 @@ if __name__ == '__main__':
 			downloadUrl = 'http://nptel.ac.in/courses/' + downloadUrlPart[ downloadUrlPart.find('/') + 1 : ]
 			downloadUrl = "%20".join(downloadUrl.split(' '))
 			saveFileName = fileNumberName + topicList[fileNumber-1]
-			#print(downloadUrl)
 			try :	
 				urllib.request.urlretrieve( downloadUrl , saveFileName )
-				print("Downloaded : " + saveFileName)
+				#print("Downloaded : " + saveFileName)
+				totalFilesDownloaded = totalFilesDownloaded + 1
+				print(CURSOR_UP_ONE + ERASE_LINE + CURSOR_UP_ONE)
+				print("#" + str(10000 + totalFilesDownloaded)[1:] + " : " + saveFileName)
 			except FileNotFoundError as f:
 				notDownloadedNumbers.append(fileNumber)
 				notDownloadedUrls.append(downloadUrl)
