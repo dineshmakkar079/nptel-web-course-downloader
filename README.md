@@ -17,8 +17,7 @@ You can refer <a href="https://pypi.python.org/pypi/bs4"> this </a> link. or goo
 <div>
 <h2>Author<br/></h2>
 <h3>Dinesh Makkar<br/></h3>
-B.Tech Mechanical Engineering (2018)<br/>
+Final Year Undergrad<br/>
 IIT Guwahati<br/>
-India<br/>
 <a href="mailto:dineshmakkar079@gmail.com">dineshmakkar079@gmail.com</a>
 </div>
