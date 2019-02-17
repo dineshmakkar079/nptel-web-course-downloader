@@ -48,6 +48,7 @@ if __name__ == '__main__':
 			downloadUrl = 'http://nptel.ac.in/courses/' + downloadUrlPart[ downloadUrlPart.find('/') + 1 : ]
 			downloadUrl = "%20".join(downloadUrl.split(' '))
 			saveFileName = fileNumberName + topicList[fileNumber-1]
+			saveFileName = saveFileName.replace("/", "")
 			try :	
 				urllib.request.urlretrieve( downloadUrl , saveFileName )
 				#print("Downloaded : " + saveFileName)
